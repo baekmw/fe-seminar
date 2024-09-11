@@ -2,13 +2,15 @@ import './App.css';
 
 import { useState } from 'react';
 
+import background from './assets/bg2.jpg';
+
 function App() {
   const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
   const [modalM, setModalM] = useState<string>('');
   return (
     <div className="font-sans">
       <img
-        src="src/assets/bg2.jpg"
+        src={background}
         className="fixed inset-0 -z-10 h-full w-full overflow-hidden"
         alt="bg image"
       ></img>
