@@ -3,8 +3,8 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [isModalOpened, setIsModalOpened] = useState(false);
-  const [modalM, setModalM] = useState();
+  const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
+  const [modalM, setModalM] = useState<string>('');
   return (
     <div className="font-sans">
       <img
@@ -13,11 +13,7 @@ function App() {
         alt="bg image"
       ></img>
       {isModalOpened && (
-        <Modal
-          setIsModalOpened={setIsModalOpened}
-          isModalOpened={isModalOpened}
-          modalM={modalM}
-        ></Modal>
+        <Modal setIsModalOpened={setIsModalOpened} modalM={modalM}></Modal>
       )}
 
       <div className="flex items-center justify-center h-screen w-screen backdrop-blur-sm">
@@ -74,7 +70,13 @@ function App() {
 
 export default App;
 
-function Modal({ setIsModalOpened, isModalOpened, modalM }) {
+function Modal({
+  setIsModalOpened,
+  modalM,
+}: {
+  setIsModalOpened: React.Dispatch<React.SetStateAction<boolean>>;
+  modalM: string;
+}): JSX.Element {
   if (modalM === 'who am i') {
     return (
       <div
@@ -90,10 +92,10 @@ function Modal({ setIsModalOpened, isModalOpened, modalM }) {
                 onClick={() => {
                   document
                     .getElementById('modal1')
-                    .classList.remove('animate-fadeIn');
+                    ?.classList.remove('animate-fadeIn');
                   document
                     .getElementById('modal1')
-                    .classList.add('animate-fadeOut');
+                    ?.classList.add('animate-fadeOut');
                   setTimeout(() => {
                     setIsModalOpened(false);
                   }, 500);
@@ -150,7 +152,7 @@ function Modal({ setIsModalOpened, isModalOpened, modalM }) {
         </div>
       </div>
     );
-  } else if (modalM === 'what do i study') {
+  } else {
     return (
       <div
         id="modal2"
@@ -165,10 +167,10 @@ function Modal({ setIsModalOpened, isModalOpened, modalM }) {
                 onClick={() => {
                   document
                     .getElementById('modal2')
-                    .classList.remove('animate-fadeIn');
+                    ?.classList.remove('animate-fadeIn');
                   document
                     .getElementById('modal2')
-                    .classList.add('animate-fadeOut');
+                    ?.classList.add('animate-fadeOut');
                   setTimeout(() => {
                     setIsModalOpened(false);
                   }, 500);
