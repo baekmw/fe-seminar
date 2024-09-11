@@ -84,9 +84,21 @@ function Modal({
       <div
         id="modal1"
         className="fixed inset-0 w-screen h-screen z-30 backdrop-blur-lg duration-300 animate-fadeIn"
+        onClick={() => {
+          document.getElementById('modal1')?.classList.remove('animate-fadeIn');
+          document.getElementById('modal1')?.classList.add('animate-fadeOut');
+          setTimeout(() => {
+            setIsModalOpened(false);
+          }, 500);
+        }}
       >
         <div className="flex justify-center items-center w-full h-full">
-          <div className="w-[20rem] h-fit p-5 bg-white bg-opacity-50 rounded-3xl shadow-xl">
+          <div
+            className="w-[20rem] h-fit p-5 bg-white bg-opacity-50 rounded-3xl shadow-xl"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
             <div className="flex justify-between pb-3 border-b-2 border-dashed border-black border-opacity-20">
               <p className="text-lg font-bold">어떤 사람인가요?</p>
               <button
@@ -159,9 +171,21 @@ function Modal({
       <div
         id="modal2"
         className="fixed inset-0 w-screen h-screen z-30 backdrop-blur-lg duration-300 animate-fadeIn"
+        onClick={() => {
+          document.getElementById('modal2')?.classList.remove('animate-fadeIn');
+          document.getElementById('modal2')?.classList.add('animate-fadeOut');
+          setTimeout(() => {
+            setIsModalOpened(false);
+          }, 500);
+        }}
       >
         <div className="flex justify-center items-center w-full h-full">
-          <div className="w-[20rem] h-fit p-5 bg-white bg-opacity-50 rounded-3xl shadow-xl">
+          <div
+            className="w-[20rem] h-fit p-5 bg-white bg-opacity-50 rounded-3xl shadow-xl"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
             <div className="flex justify-between pb-3 border-b-2 border-dashed border-black border-opacity-20">
               <p className="text-lg font-bold">뭘 공부하나요?</p>
               <button
