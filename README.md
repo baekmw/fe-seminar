@@ -1,2 +1,1 @@
-# 2024 waffle seminar
-## Assignment #1
+# 2024 waffle seminar - Assignment #1
